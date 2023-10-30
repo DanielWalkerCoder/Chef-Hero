@@ -1,0 +1,3 @@
+"Chef Hero" is an app for people looking to expand their cooking repertoire. It is used to save mastered recipes and data about how many times those recipes are used and given compliments. It also functions as a shopping list and a way to keep track of kitchen inventory, as well as which brands can be trusted and which shouold be avoided.
+
+The premise is simple: you gain 2 experience points when you master a new recipe, 1 experience point when you use a recipe you've already mastered, and 
