@@ -1,5 +1,7 @@
 let storedExp = window.localStorage.getItem('storedExp')
 let exp = storedExp ? storedExp : 0
+let level = 1 + (parseInt(exp) - (parseInt(exp) % 10)) / 10
+document.querySelector(`#levelText`).innerText = `lvl ${level}`
 
 
 
