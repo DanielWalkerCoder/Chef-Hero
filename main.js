@@ -43,7 +43,26 @@ document.querySelector('#storeRecipe').addEventListener('click', () =>{
 
 //Cook known recipes//////////////////////////////////////////////////
 document.querySelector('#storeConqueredFoes').addEventListener('click', () =>{
-    
+    exp = parseInt(exp) + 1
+    window.localStorage.setItem('storedExp', exp)
+    imageNum = parseInt(exp) % 10
+    document.querySelector('#expBar').src = imgArr[imageNum]
+    level = 1 + (parseInt(exp) - (parseInt(exp) % 10)) / 10
+    document.querySelector(`#levelText`).innerText = `Lvl ${level} Chef`
+    conqueredFoes = parseInt(conqueredFoes) + 1
+    window.localStorage.setItem('storedConqueredFoes', conqueredFoes)
+    document.querySelector(`#conqueredFoesText`).innerText = `Conquered foes: ${conqueredFoes}`
+})
+document.querySelector('#storeFame').addEventListener('click', () =>{
+    exp = parseInt(exp) + 3
+    window.localStorage.setItem('storedExp', exp)
+    imageNum = parseInt(exp) % 10
+    document.querySelector('#expBar').src = imgArr[imageNum]
+    level = 1 + (parseInt(exp) - (parseInt(exp) % 10)) / 10
+    document.querySelector(`#levelText`).innerText = `Lvl ${level} Chef`
+    fame = parseInt(fame) + 1
+    window.localStorage.setItem('storedFame', fame)
+    document.querySelector(`#fameText`).innerText = `Fame: ${fame}`
 })
 
 
