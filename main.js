@@ -4,7 +4,7 @@ let exp = storedExp ? storedExp : 0
 
 
 
-//Add, remove, and store shopping items////////////////////////////////
+//Add, remove, and store shopping items///////////////////////////////
 let storedBuyStr = window.localStorage.getItem('storedBuyStr')
 let buyStr = storedBuyStr ? storedBuyStr : ""
 let buyArr = alphabetize(strToArr(buyStr))
