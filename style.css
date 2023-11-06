@@ -1,3 +1,15 @@
-#topLeft{
+#topTop{
     text-align: center;
+}
+
+#topCenter{
+    text-align: center;
+}
+
+#topBottom{
+    margin-left: 20px
+}
+
+img{
+    height: 20px;
 }

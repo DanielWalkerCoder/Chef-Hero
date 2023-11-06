@@ -1,9 +1,50 @@
 let storedExp = window.localStorage.getItem('storedExp')
 let exp = storedExp ? storedExp : 0
 let level = 1 + (parseInt(exp) - (parseInt(exp) % 10)) / 10
-document.querySelector(`#levelText`).innerText = `lvl ${level}`
+let imageNum = parseInt(exp) % 10
+document.querySelector(`#levelText`).innerText = `Lvl ${level} Chef`
+let storedFame = window.localStorage.getItem('storedFame')
+let fame = storedFame ? storedFame : 0
+document.querySelector(`#fameText`).innerText = `Fame: ${fame}`
+let storedConqueredFoes = window.localStorage.getItem('storedConqueredFoes')
+let conqueredFoes = storedConqueredFoes ? storedConqueredFoes : 0
+document.querySelector(`#conqueredFoesText`).innerText = `Conquered foes: ${conqueredFoes}`
+let storedUniqueConqueredFoes = window.localStorage.getItem('storedUniqueConqueredFoes')
+let uniqueConqueredFoes = storedUniqueConqueredFoes ? storedUniqueConqueredFoes : 0
+document.querySelector(`#uniqueConqueredFoesText`).innerText = `Unique Conquered foes: ${uniqueConqueredFoes}`
+let imgArr = ['./exp0.jpg', './exp1.jpg', './exp2.jpg', './exp3.jpg', './exp4.jpg', './exp5.jpg', './exp6.jpg', './exp7.jpg', './exp8.jpg', './exp9.jpg']
+document.querySelector('#expBar').src = imgArr[imageNum]
+let storedRecipes = window.localStorage.getItem('storedRecipes')
+let recipes = storedRecipes ? storedRecipes: []
 
 
+//Add new recipes/////////////////////////////////////////////////////
+document.querySelector('#storeRecipe').addEventListener('click', () =>{
+    exp = parseInt(exp) + 2
+    window.localStorage.setItem('storedExp', exp)
+    imageNum = parseInt(exp) % 10
+    document.querySelector('#expBar').src = imgArr[imageNum]
+    level = 1 + (parseInt(exp) - (parseInt(exp) % 10)) / 10
+    document.querySelector(`#levelText`).innerText = `Lvl ${level} Chef`
+    conqueredFoes = parseInt(conqueredFoes) + 1
+    window.localStorage.setItem('storedConqueredFoes', conqueredFoes)
+    document.querySelector(`#conqueredFoesText`).innerText = `Conquered foes: ${conqueredFoes}`
+    uniqueConqueredFoes = parseInt(uniqueConqueredFoes) + 1
+    window.localStorage.setItem('storedUniqueConqueredFoes', uniqueConqueredFoes)
+    document.querySelector(`#uniqueConqueredFoesText`).innerText = `Unique Conquered foes: ${conqueredFoes}`
+    let newObj = {'name': document.querySelector('#name').value, 'ingredients': document.querySelector('#ingredients').value.split(', '), 'directions': document.querySelector('#directions').value}
+    recipes.push(newObj)
+    window.localStorage.setItem('storedRecipes', JSON.stringify(recipes))
+    document.querySelector('#name').value = ''
+    document.querySelector('#ingredients').value = ''
+    document.querySelector('#directions').value = ''
+})
+
+
+//Cook known recipes//////////////////////////////////////////////////
+document.querySelector('#storeConqueredFoes').addEventListener('click', () =>{
+    
+})
 
 
 //Add, remove, and store shopping items///////////////////////////////
